@@ -56,6 +56,7 @@ type LineScanner struct {
 // NewLineScanner creates a new line scanner from r
 func NewLineScanner(r io.Reader) *LineScanner {
 	scan := bufio.NewScanner(r)
+	scan.Buffer([]byte{}, 1024*1024)
 	return &LineScanner{scan, 0}
 }
 
